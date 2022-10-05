@@ -5,10 +5,7 @@ import TaskList from "./TaskList";
 
 import { CATEGORIES, TASKS } from "../data";
 
-console.log("Here's the data you're working with");
-console.log({ CATEGORIES, TASKS });
-
-function App() { 
+function App() {
 	const [tasks, setTasks] = React.useState(TASKS);
 
 	const handleDeleteTasks = (task) => {
@@ -23,8 +20,11 @@ function App() {
 			setTasks(newTasks);
 		}
 	};
+	const onTaskFormSubmit = (newTask) => {
+		setTasks([...tasks, newTask]);
+	};
 
-  return (
+	return (
 		<div className="App">
 			<h2>My tasks</h2>
 			<CategoryFilter
@@ -33,10 +33,9 @@ function App() {
 			/>
 			<NewTaskForm
 				categories={CATEGORIES}
-				// onTaskFormSubmit={onTaskFormSubmit}
+				onTaskFormSubmit={onTaskFormSubmit}
 			/>
 			<TaskList tasks={tasks} handleDeleteTasks={handleDeleteTasks} />
-
 		</div>
 	);
 }

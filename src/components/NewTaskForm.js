@@ -1,5 +1,6 @@
-import React from "react";
 
+
+import React from "react";
 
 function NewTaskForm({ onTaskFormSubmit, categories: categoryList }) {
 	const [category, setCategory] = React.useState("");
@@ -10,6 +11,7 @@ function NewTaskForm({ onTaskFormSubmit, categories: categoryList }) {
 		newCat.shift();
 		return newCat;
 	};
+
 	return (
 		<form
 			className="new-task-form"
